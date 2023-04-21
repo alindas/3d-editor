@@ -275,7 +275,7 @@ function Workbench(props: IWorkbench) {
 
   // redux 上选中的模型变化时更新
   useEffect(() => {
-    console.log('selected', selected);
+    // console.log('selected', selected);
 
     if (isUndefinedOrNull(selected)) {
       cancelModelSelect();
@@ -284,7 +284,7 @@ function Workbench(props: IWorkbench) {
         // 如果选中的是某个物体
         // scene.add(outlinePassModel);
         // outlinePass.selectedObjects = [outlinePassModel];
-        outlinePass.selectedObjects = [];
+        outlinePass.selectedObjects = [selected];
       } else {
         outlinePass.selectedObjects = [selected];
       }
@@ -676,9 +676,17 @@ function Workbench(props: IWorkbench) {
 
   return (
     <div className='workbench-wrapper'>
-      <div
-        className='container'
-      >
+      <div className='tab-bar' style={isUndefinedOrNull(selected) ? {display: 'none'} : {}}>
+        <button onClick={() => setControlMode('translate')}>移动</button>
+        <button onClick={() => setControlMode('rotate')}>旋转</button>
+        <button onClick={() => setControlMode('scale')}>缩放</button>
+        <button onClick={() => setControlMode('focus')}>追踪</button>
+        <button onClick={() => setControlMode('disable')}>隐藏</button>
+      </div>
+      {isUndefinedOrNull(props.model) && <div className='tip'>
+        <span>上传FBX模型以继续</span>
+      </div>}
+      <div className='container'>
         <div ref={threeDom} className='main'></div>
         <div ref={axesDom} className='axes'></div>
       </div>
