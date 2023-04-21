@@ -61,7 +61,7 @@ export default function AddModel(props) {
 
   return (
     <div onClick={addFile} className='add-btn'>
-      <input type="file" id="model-file" onChange={loaderModels} hidden/>
+      <input multiple type="file" id="model-file" onChange={loaderModels} hidden/>
     </div>
   )
 }
