@@ -41,6 +41,7 @@
   text-align: center;
   line-height: 80vh;
   user-select: none;
+  pointer-events: none;
   opacity: .75;
 }
 

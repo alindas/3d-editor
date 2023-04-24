@@ -48,6 +48,7 @@ export default function AddModel(props) {
             window.alert(
               '模型出错，请检查文件对象',
             );
+            nProgress.done();
           },
         );
       }
@@ -56,6 +57,7 @@ export default function AddModel(props) {
       window.alert(
         '上传模型出错',
       );
+      nProgress.done();
     }
   }
 
