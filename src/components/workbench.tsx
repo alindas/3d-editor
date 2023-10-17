@@ -9,11 +9,11 @@ import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import TWEEN from '@tweenjs/tween.js';
 import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib';
 
-import debounce from './utils/debounce';
-import ThreeD from './utils/globalThreeD';
-import { OutlinePass } from './utils/three-correct/outlinePass';
-import { makeTextTexture } from './utils/three';
-import { isUndefinedOrNull, getClientXY } from './utils/common';
+import debounce from '../utils/debounce';
+import ThreeD from '../utils/globalThreeD';
+import { OutlinePass } from '../utils/three-correct/outlinePass';
+import { makeTextTexture } from '../utils/three';
+import { isUndefinedOrNull, getClientXY } from '../utils/common';
  //方法：根据文件名获取文件类型
 export type TMode = 'translate' | 'rotate' | 'scale';
 
@@ -297,6 +297,7 @@ function Workbench(props: IWorkbench) {
 
   const initScene = () => {
     scene = new THREE.Scene();
+    window.scene = scene
     scene.background = new THREE.Color(0x333333);
 
     // scene.add(new THREE.AxesHelper(388));
